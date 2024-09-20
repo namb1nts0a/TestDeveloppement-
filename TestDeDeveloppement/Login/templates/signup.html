@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sign Up</title>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -18,7 +18,6 @@
                 <img src="{% static 'images/curesuremedico_logo.jpeg' %}" alt="" >
             </div>
         
-            
             <div class="email">
                 <label for="email">Email Address</label>
                 <div class="sec-2">
@@ -31,12 +30,20 @@
                 <div class="sec-2">
                     <ion-icon name="lock-closed-outline"></ion-icon>
                     <input class="pas" type="password" name="password" placeholder="············"/>
-                    <ion-icon class="show-hide" name="eye-outline"></ion-icon>
+                    <!-- <ion-icon class="show-hide" name="eye-outline"></ion-icon> -->
                 </div>
             </div>
-            <button class="login">Login </button>
+            <div class="password">
+                <label for="password">Confirm Password</label>
+                <div class="sec-2">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input class="pas" type="password" name="password" placeholder="············"/>
+                    <!-- <ion-icon class="show-hide" name="eye-outline"></ion-icon> -->
+                </div>
+            </div>
+            <button class="login">Sign up</button>
         </form>
-        <div class="footer"><span><a href="/signup/">Sign up</a></span><span>Forgot Password?</span></div>
+        <!-- <div class="footer"><span>Signup</span><span>Forgot Password?</span></div> -->
     </div>
 </body>
 </html>

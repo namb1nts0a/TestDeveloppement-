@@ -1,13 +1,18 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 errors</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
-    <h1>Erreur 404</h1>
-    <p>La page que vous recherchez n'existe pas.</p>
-    <a href="/login/">Retour à l'accueil</a>
+    <div class="screen-1">
+        <h1>Erreur 404</h1>
+        <p>La page que vous recherchez n'existe pas.</p>
+        <a href="/login/">Retour à l'accueil</a>
+    </div>
 </body>
 </html>
