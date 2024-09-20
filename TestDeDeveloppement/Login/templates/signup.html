@@ -2,37 +2,46 @@
 {% load static %} 
 
 {% block content %}
-    <div class="screen-1">
-        <form method="POST" action=""></form>
-            <div class="image">
-                <img src="{% static 'images/curesuremedico_logo.jpeg' %}" alt="" >
-            </div>
-        
-            <div class="email">
-                <label for="email">Email Address</label>
-                <div class="sec-2">
-                    <ion-icon name="mail-outline"></ion-icon>
-                    <input type="email" name="email" placeholder="Username@gmail.com"/>
+    
+        <form method="POST" action="">
+            <div class="screen-1">
+            {% csrf_token %}
+            {% load widget_tweaks %}
+                <div class="image">
+                    <img src="{% static 'images/curesuremedico_logo.jpeg' %}" alt="" >
                 </div>
-            </div>
-            <div class="password">
-                <label for="password">Password</label>
-                <div class="sec-2">
-                    <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input class="pas" type="password" name="password" placeholder="············"/>
-                    <!-- <ion-icon class="show-hide" name="eye-outline"></ion-icon> -->
+            
+                
+                <div class="email">
+                    <label for="email">Email Address</label>
+                    <div class="sec-2">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        {{ form.email|attr:"type:email"|attr:"name:email"|attr:"placeholder:Username@gmail.com" }}
+                    </div>
                 </div>
-            </div>
-            <div class="password">
-                <label for="password">Confirm Password</label>
-                <div class="sec-2">
-                    <ion-icon name="lock-closed-outline"></ion-icon>
-                    <input class="pas" type="password" name="password" placeholder="············"/>
-                    <!-- <ion-icon class="show-hide" name="eye-outline"></ion-icon> -->
+                <div class="password">
+                    <label for="username">Username</label>
+                    <div class="sec-2">
+                        <ion-icon name="person-outline"></ion-icon>
+                        {{ form.username|attr:"type:text"|attr:"name:username"|attr:"placeholder:Username" }}
+                    </div>
                 </div>
+                <div class="password">
+                    <label for="password">Password</label>
+                    <div class="sec-2">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        {{ form.password1|attr:"class:pas"|attr:"type:password"|attr:"name:password"|attr:"placeholder:············" }}
+                    </div>
+                </div>
+                <div class="password">
+                    <label for="password">Confirm Password</label>
+                    <div class="sec-2">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        {{ form.password2|attr:"class:pas"|attr:"type:password"|attr:"name:password"|attr:"placeholder:············" }}
+                    </div>
+                </div>
+                <button class="login">Sign up</button>
             </div>
-            <button class="login">Sign up</button>
         </form>
-        <!-- <div class="footer"><span>Signup</span><span>Forgot Password?</span></div> -->
-    </div>
+            
 {% endblock content %}

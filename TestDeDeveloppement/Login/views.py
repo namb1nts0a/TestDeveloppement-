@@ -1,14 +1,32 @@
-from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect
 from django.template import loader
 from django.urls import reverse
 from django import template
+from Login.form import CreateUserForm
+from django.contrib import messages
 
 # Create your views here.
 def login(request):
     return render(request, "login.html")
 
 def signup(request):
-    return render(request, "signup.html")
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            print("save", messages)
+            messages.success(request, "Votre compte a ete cree")
+            return redirect('/login/')
+        else:
+            print("unsave", messages)
+            messages.error(request, "il y a une erreur")
+
+    context = {
+        'form' : form
+    }
+
+    return render(request, "signup.html", context)
 
 
 def pages(request):

@@ -19,7 +19,7 @@ from django.urls import path, include, re_path
 from Login.views import pages
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('',include('Login.urls')),
     re_path(r'^.*\.*', pages, name='pages'),
 ]
