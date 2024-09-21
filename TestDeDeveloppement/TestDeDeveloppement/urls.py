@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from Login.views import pages
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('',include('Login.urls')),
+    path('', include('Dashboard.urls')),
+    path('logout/', LogoutView.as_view(), name='logout'),
     re_path(r'^.*\.*', pages, name='pages'),
 ]
 

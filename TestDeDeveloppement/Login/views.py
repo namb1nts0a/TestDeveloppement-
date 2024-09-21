@@ -18,7 +18,7 @@ def login(request):
             if user is not None:
                 auth_login(request, user)
                 messages.success(request, "Connexion reussie")
-                return redirect("/")
+                return redirect("/dashboard/")
             else:
                 messages.error(request, "Email ou mot de passe incorrect")
         else:

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Login',
-    'widget_tweaks'
+    'widget_tweaks',
+    'Dashboard'
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "Login.User"
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True #active la session expire
+
+LOGOUT_REDIRECT_URL = '/login/' # redirection dans la page login apres logout
