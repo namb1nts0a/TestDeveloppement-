@@ -1,10 +1,12 @@
 {% if messages %}
-        <ul id="message-list" hidden>
-            {% for message in messages %}
-            <li class="message" data-tag="{{ message.tags }}" >{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
+    <ul id="message-list" hidden>
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <li class="message" data-tag="{{ message.tags }}">{{ message }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endif %}
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
@@ -12,11 +14,11 @@
                 const messages = document.querySelectorAll('.message');
                 messages.forEach((message) => {
                     const messageType = message.getAttribute('data-tag');
-                    const swalType = messageType === 'success' ? 'success' : 'error';
+                    // const swalType = messageType === 'success' ? 'success' : 'error';
                     
                     Swal.fire({
-                        icon: swalType,
-                        title: messageType === 'success' ? 'Succès' : 'Erreur',
+                        icon: 'error',
+                        title: 'Erreur',
                         text: message.textContent,
                         confirmButtonText: 'OK',
                         timer: 3000
