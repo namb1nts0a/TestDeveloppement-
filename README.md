@@ -16,10 +16,20 @@ Assurez-vous d'avoir installé les éléments suivants sur votre machine :
 
    ```bash
    git clone https://github.com/namb1nts0a/TestDeveloppement-
+
+2. Accédez au répertoire du projet :
+    ```bash
     cd mon-projet
+
+3. Créez un environnement virtuel et activez-le :
+    ```bash
     python -m venv env
     source env/bin/activate  
+
+4. Installez les dépendances du projet :
+    ```bash
     pip install -r requirements.txt
+
 
 ## Migration sur la base de donnees
     python manage.py migrate
