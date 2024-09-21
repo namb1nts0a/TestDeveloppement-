@@ -104,6 +104,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',  # Utilise bcrypt avec SHA-256
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',        # Backup to PBKDF2 si bcrypt n'est pas dispo
+]
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
