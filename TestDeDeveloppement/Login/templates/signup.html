@@ -44,31 +44,6 @@
             </div>
         </form>
 
-        {% if messages %}
-        <ul id="message-list" hidden>
-            {% for message in messages %}
-            <li class="message" data-tag="{{ message.tags }}" >{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const messages = document.querySelectorAll('.message');
-                messages.forEach((message) => {
-                    const messageType = message.getAttribute('data-tag');
-                    const swalType = messageType === 'success' ? 'success' : 'error';
-                    
-                    Swal.fire({
-                        icon: swalType,
-                        title: messageType === 'success' ? 'Succès' : 'Erreur',
-                        text: message.textContent,
-                        confirmButtonText: 'OK',
-                        timer: 3000
-                    });
-                });
-            });
-        </script>
+        {% include 'includes/message.html' %}
             
 {% endblock content %}

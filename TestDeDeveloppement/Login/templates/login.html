@@ -1,27 +1,28 @@
 {% extends "layouts/base.html" %}
 {% load static %} 
+{% load widget_tweaks %}
 
 {% block content %}
     
         <form method="POST" action="">
+            {% csrf_token %}
             <div class="screen-1">
                 <div class="image">
                     <img src="{% static 'images/curesuremedico_logo.jpeg' %}" alt="" >
                 </div>
             
-                
                 <div class="email">
-                    <label for="email">Email Address</label>
+                    <label for="email">Username</label>
                     <div class="sec-2">
-                        <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" name="email" placeholder="Username@gmail.com"/>
+                        <ion-icon name="person-outline"></ion-icon>
+                         {{ form.username|attr:"name:username"|attr:"placeholder:username" }}
                     </div>
                 </div>
                 <div class="password">
                     <label for="password">Password</label>
                     <div class="sec-2">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input class="pas" type="password" name="password" placeholder="············"/>
+                         {{ form.password|attr:"class:pas"|attr:"type:password"|attr:"name:password"|attr:"placeholder:············" }}
                         <ion-icon class="show-hide" name="eye-outline"></ion-icon>
                     </div>
                 </div>
@@ -30,6 +31,8 @@
             </div>
             
         </form>
+
         
+        {% include 'includes/message.html' %}
     
 {% endblock content %}

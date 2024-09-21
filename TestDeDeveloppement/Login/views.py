@@ -2,12 +2,32 @@ from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirec
 from django.template import loader
 from django.urls import reverse
 from django import template
-from Login.form import CreateUserForm
+from Login.form import CreateUserForm, UserLoginForm
 from django.contrib import messages
+from django.contrib.auth import authenticate, login as auth_login
 
 # Create your views here.
 def login(request):
-    return render(request, "login.html")
+    form = UserLoginForm()
+    if request.method == "POST":
+        form = UserLoginForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                auth_login(request, user)
+                messages.success(request, "Connexion reussie")
+                return redirect("/")
+            else:
+                messages.error(request, "Email ou mot de passe incorrect")
+        else:
+            messages.error(request, "Veuillez corriger les erreurs ci-dessous.")
+
+    context = {
+        'form' : form
+    }
+    return render(request, "login.html", context)
 
 def signup(request):
     form = CreateUserForm()
