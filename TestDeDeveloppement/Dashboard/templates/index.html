@@ -24,6 +24,7 @@
 </head>
 <body>
     <p>page securise</p>
+    <p>Bienvenue, {{ request.user.username }} !</p>
     
    <!-- Bouton de déconnexion -->
    <form method="POST" action="{% url 'logout' %}">

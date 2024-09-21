@@ -131,6 +131,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "Login.User"
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True #active la session expire
+
+#SESSION_COOKIE_SECURE = True  # Seulement si HTTPS est activé
 
 LOGOUT_REDIRECT_URL = '/login/' # redirection dans la page login apres logout
